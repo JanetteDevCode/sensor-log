@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sensor Log</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Sensor Log</h1>
+<div id="error-div">
+    <p id="input-error-p"></p>
+</div>
+<div id="content-limit-form-div">
+    <form id="content-limit-form">
+        <p><span id="content-limit-form-span">Show
+                <input id="content-limit-input" type="number" min="1" max="1000"
+                       value="100" placeholder="100">
+                row(s)
+                <button id="content-limit-button">Filter</button>
+            </span>
+            <span id="data-row-count-span" th:text="'Showing ' + ${sensorDataList.size()} + ' row(s)'"></span>
+        </p>
+    </form>
+</div>
+<div id="last-update-div"></div>
+<div id="data-div">
+    <table id="data-table">
+        <tr>
+            <th>Device</th>
+            <th>Timestamp (<span th:text="${#dates.format(#calendars.createToday(), 'z')}"></span>)</th>
+            <th>Temperature (&deg;F)</th>
+        </tr>
+        <tr  th:each="sensorData: ${sensorDataList}">
+            <td th:text="${sensorData.device}"/>
+            <td th:text="${sensorData.timestamp}"/>
+            <td th:text="${sensorData.temperature}"/>
+        </tr>
+    </table>
+</div>
+<script src="/scripts/main.js"></script>
+</body>
+</html>

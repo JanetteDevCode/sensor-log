@@ -1,5 +1,7 @@
-package dev.janette.sensorlog;
+package dev.janette.sensorlog.controller;
 
+import dev.janette.sensorlog.SensorData;
+import dev.janette.sensorlog.SensorDataRepository;
 import dev.janette.sensorlog.error.KeyNotValidException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -11,7 +13,7 @@ import java.sql.Timestamp;
 
 @RestController
 @RequestMapping(path="/api/v1")
-public class MainController {
+public class LogApiController {
     @Autowired
     private SensorDataRepository sensorDataRepository;
 

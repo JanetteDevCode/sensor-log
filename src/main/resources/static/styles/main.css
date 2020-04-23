@@ -1,0 +1,72 @@
+body {
+    margin: 10px 20px;
+}
+h1 {
+    font-size: 1.5rem;
+}
+h2 {
+    font-size: 1.25rem;
+}
+h3 {
+    font-size: 1rem;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 6px;
+}
+th {
+    text-align: left;
+}
+table#data-table tr:nth-child(even) {
+    background-color: #eee;
+}
+table#data-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+table#data-table th {
+    color: white;
+    background-color: black;
+}
+td#humidity-data, td#temp-fahrenheit-data {
+    text-align: right;
+}
+div#error-div {
+    color: red;
+    font-weight: bold;
+}
+div#last-update-div {
+    font-style: italic;
+}
+span#content-limit-form-span {
+    font-weight: bold;
+}
+span#data-row-count-span {
+    font-weight: normal;
+    font-size: 0.75em;
+    margin-left: 10px;
+}
+input {
+    padding: 8px;
+    width: 50px;
+    border: 1px solid gray;
+}
+button#content-limit-button {
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 6px;
+    color: white;
+    margin-right: 10px;
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+@media (hover: hover) {
+    button#content-limit-button:hover {
+        background-color: white;
+        color: black;
+    }
+}
