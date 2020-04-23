@@ -32,11 +32,17 @@
             <th>Device</th>
             <th>Timestamp (<span th:text="${#dates.format(#calendars.createToday(), 'z')}"></span>)</th>
             <th>Temperature (&deg;F)</th>
+            <th>Humidity (%)</th>
+            <th>Light Level</th>
+            <th>Sound Level</th>
         </tr>
         <tr  th:each="sensorData: ${sensorDataList}">
             <td th:text="${sensorData.device}"/>
             <td th:text="${sensorData.timestamp}"/>
             <td th:text="${sensorData.temperature}"/>
+            <td th:text="${sensorData.humidity}"/>
+            <td th:text="${sensorData.light}"/>
+            <td th:text="${sensorData.sound}"/>
         </tr>
     </table>
 </div>
