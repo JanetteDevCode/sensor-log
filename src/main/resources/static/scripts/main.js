@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var contentLimit = 100;
-    var refreshInterval = 30000;
+    var refreshInterval = 300000;
     var url = location.protocol + "//" + location.host + location.pathname;
 
     var displayLastUpdate = function() {
