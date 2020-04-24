@@ -1,5 +1,7 @@
 package dev.janette.sensorlog;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 

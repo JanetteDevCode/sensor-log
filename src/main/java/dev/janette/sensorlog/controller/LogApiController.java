@@ -45,7 +45,7 @@ public class LogApiController {
     }
 
     @GetMapping(path="/all")
-    public Iterable<SensorData> getAllEntries(@RequestParam String key, @RequestParam(defaultValue = "2") Integer limit) throws Exception {
+    public Iterable<SensorData> getAllEntries(@RequestParam String key, @RequestParam(defaultValue = "100") Integer limit) throws Exception {
         final String GET_KEY = env.getProperty("sensor-log.apiGetKey");
 
         if (!(key.equals(GET_KEY))) {
@@ -56,7 +56,7 @@ public class LogApiController {
     }
 
     @GetMapping(path="/{device}")
-    public Iterable<SensorData> getEntriesByDevice(@PathVariable String device, @RequestParam String key, @RequestParam(defaultValue = "2") Integer limit) throws Exception {
+    public Iterable<SensorData> getEntriesByDevice(@PathVariable String device, @RequestParam String key, @RequestParam(defaultValue = "100") Integer limit) throws Exception {
         final String GET_KEY = env.getProperty("sensor-log.apiGetKey");
 
         if (!(key.equals(GET_KEY))) {

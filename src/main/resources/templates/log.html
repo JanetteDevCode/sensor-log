@@ -9,7 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-<h1>Sensor Log</h1>
+<div id="header-div">
+    <form th:action="@{/logout}" method="post">
+        <label th:inline="text">Logged in as [[${#httpServletRequest.remoteUser}]]</label>
+        <input type="submit" value="Sign Out"/>
+    </form>
+    <h1>Sensor Log</h1>
+</div>
 <div id="error-div">
     <p id="input-error-p"></p>
 </div>
@@ -21,7 +27,7 @@
                 row(s)
                 <button id="content-limit-button">Filter</button>
             </span>
-            <span id="data-row-count-span" th:text="'Showing ' + ${sensorDataList.size()} + ' row(s)'"></span>
+            <span id="data-row-count-span" th:inline="text">Showing [[${sensorDataList.size()}]] rows</span>
         </p>
     </form>
 </div>

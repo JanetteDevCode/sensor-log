@@ -21,14 +21,14 @@ public class LogViewerController {
     private SensorDataRepository sensorDataRepository;
 
     @GetMapping(path="/all")
-    public String getAllEntries(@RequestParam(defaultValue = "2") Integer limit, Model model) {
+    public String getAllEntries(@RequestParam(defaultValue = "100") Integer limit, Model model) {
         List<SensorData> sensorDataList = sensorDataRepository.findAll(PageRequest.of(0, limit, Sort.by("timestamp").descending()));
         model.addAttribute("sensorDataList", sensorDataList);
         return "log";
     }
 
     @GetMapping(path="/{device}")
-    public String getEntriesByDevice(@PathVariable String device, @RequestParam(defaultValue = "2") Integer limit, Model model) {
+    public String getEntriesByDevice(@PathVariable String device, @RequestParam(defaultValue = "100") Integer limit, Model model) {
         List<SensorData> sensorDataList = sensorDataRepository.findByDevice(device, PageRequest.of(0, limit, Sort.by("timestamp").descending()));
         model.addAttribute("sensorDataList", sensorDataList);
         return "log";
