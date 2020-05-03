@@ -36,7 +36,7 @@
     <table id="data-table">
         <tr>
             <th>Device</th>
-            <th>Timestamp (<span th:text="${#dates.format(#calendars.createToday(), 'z')}"></span>)</th>
+            <th>Reading Time (<span th:text="${#dates.format(#calendars.createToday(), 'z')}"></span>)</th>
             <th>Temperature (&deg;F)</th>
             <th>Humidity (%)</th>
             <th>Light Level</th>
@@ -44,7 +44,7 @@
         </tr>
         <tr  th:each="sensorData: ${sensorDataList}">
             <td th:text="${sensorData.device}"/>
-            <td th:text="${sensorData.timestamp}"/>
+            <td th:text="${sensorData.readingTime}"/>
             <td th:text="${sensorData.temperature}"/>
             <td th:text="${sensorData.humidity}"/>
             <td th:text="${sensorData.light}"/>

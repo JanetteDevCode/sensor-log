@@ -1,7 +1,5 @@
 package dev.janette.sensorlog;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -11,8 +9,8 @@ public class SensorData {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Basic
-    private Timestamp timestamp;
+    @Column(columnDefinition = "TIMESTAMP (6)")
+    private Timestamp readingTime;
 
     private String device;
 
@@ -32,12 +30,12 @@ public class SensorData {
         this.id = id;
     }
 
-    public Timestamp getTimestamp() {
-        return this.timestamp;
+    public Timestamp getReadingTime() {
+        return this.readingTime;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
+    public void setReadingTime(Timestamp readingTime) {
+        this.readingTime = readingTime;
     }
 
     public String getDevice() {

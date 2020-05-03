@@ -26,7 +26,8 @@ public class LogApiController {
                                   @RequestParam Double humidity,
                                   @RequestParam Double light,
                                   @RequestParam Double sound,
-                                  @RequestParam String key) {
+                                  @RequestParam String key,
+                                  @RequestParam String readingTime) {
         final String POST_KEY = env.getProperty("sensor-log.apiPostKey");
 
         if (!(key.equals(POST_KEY))) {
@@ -39,7 +40,7 @@ public class LogApiController {
         sensorData.setHumidity(humidity);
         sensorData.setLight(light);
         sensorData.setSound(sound);
-        sensorData.setTimestamp(new Timestamp(System.currentTimeMillis()));
+        sensorData.setReadingTime(Timestamp.valueOf(readingTime));
 
         return sensorDataRepository.save(sensorData);
     }
@@ -52,7 +53,7 @@ public class LogApiController {
             throw new KeyNotValidException();
         }
 
-        return sensorDataRepository.findAll(PageRequest.of(0, limit, Sort.by("timestamp").descending()));
+        return sensorDataRepository.findAll(PageRequest.of(0, limit, Sort.by("readingTime").descending()));
     }
 
     @GetMapping(path="/{device}")
@@ -63,6 +64,6 @@ public class LogApiController {
             throw new KeyNotValidException();
         }
 
-        return sensorDataRepository.findByDevice(device, PageRequest.of(0, limit, Sort.by("timestamp").descending()));
+        return sensorDataRepository.findByDevice(device, PageRequest.of(0, limit, Sort.by("readingTime").descending()));
     }
 }
